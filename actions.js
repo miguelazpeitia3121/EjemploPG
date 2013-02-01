@@ -8,15 +8,15 @@ function initialize(lat, lon)
 {
 var latlng = new google.maps.LatLng(lat, lon);	
 var myOptions = {
-  center:latlng,
   zoom:15,
+  center:latlng,
   mapTypeId:google.maps.MapTypeId.ROADMAP
   };
 
-var map=new google.maps.Map(document.getElementById("googleMap"),myOptions);
+var map = new google.maps.Map(document.getElementById("googleMap"),myOptions);
 
-var marker=new google.maps.Marker({
-  position:latlng,
+var marker = new google.maps.Marker({
+  position: latlng,
   map: map, 
   title:"Mi posición"
   //lo quito para las pruebas iniciales
@@ -40,9 +40,9 @@ infowindow.open(map,marker);*/
 //Codigo de la clase
 $(document).ready(function(){
 	document.addEventListener("deviseready", function(){ 
-	navigator.geolocation.getCurrentPosition(function(position){
-		initialize(positoin.coords.latitude, position.cords.longitude); 
-	}, function(err){
+		navigator.geolocation.getCurrentPosition(function(position){
+			initialize(positoin.coords.latitude, position.cords.longitude); 
+		}, function(err){
 		navigator.notification.alert('Error: ' + err.code, function(){  }, 'Geolocalizaci&oacute;n', 'Aceptar');	
 	}); 
 	
